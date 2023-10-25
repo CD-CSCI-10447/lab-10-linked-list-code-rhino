@@ -17,6 +17,37 @@ public class SinglyLinkedListTest {
     }
 
     @Test
+    public void isEmptyTest01(){
+        SinglyLinkedList<String> linkedList = new SinglyLinkedList<>();
+        Boolean actual = linkedList.isEmpty();
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    public void isEmptyTest02(){
+        SinglyLinkedList<String> linkedList = new SinglyLinkedList<>();
+        linkedList.insertAtHead("Test");
+        Boolean actual = linkedList.isEmpty();
+        Assertions.assertFalse(actual);
+    }
+
+    @Test
+    public void insertAfterTest01(){
+        SinglyLinkedList<String> linkedList = new SinglyLinkedList<>();
+        linkedList.insertAtHead("First");
+        Boolean actual = linkedList.insertAfter("First", "Second");
+        System.out.println(linkedList.toString());
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    public void insertAfterTest02(){
+        SinglyLinkedList<String> linkedList = new SinglyLinkedList<>();
+        Boolean actual = linkedList.insertAfter("First", "Second");
+        Assertions.assertFalse(actual);
+    }
+
+    @Test
     public void insertAtHeadTest02(){
         SinglyLinkedList<String> linkedList = new SinglyLinkedList<>();
         linkedList.insertAtHead("Test 01");

@@ -14,6 +14,32 @@ public class SinglyLinkedList<T> {
         this.headNode = node;
     }
 
+    public Boolean isEmpty(){
+        return (headNode == null);
+    }
+
+    public Boolean insertAfter(T previous, T data){
+        Node<T> currentNode = headNode;
+        while(currentNode  != null){
+            // Compare the two values of current node and previous
+            T currentValue = currentNode.getData();
+            // if the values are equal
+            if(currentValue.equals(previous)) {
+
+                // create a new node and place data in it
+                Node<T> newNode = new Node<>(data);
+                // new nodes next node equal to current nodes next node
+                newNode.setNextNode(currentNode.getNextNode());
+                // current nodes next node equal to new node
+                currentNode.setNextNode(newNode);
+                return true;
+            }
+            Node<T> nextNode = currentNode.getNextNode();
+            currentNode = nextNode;
+        }
+        return false;
+    }
+
     public String toString(){
         String data = "";
         Node<T> node = headNode;
