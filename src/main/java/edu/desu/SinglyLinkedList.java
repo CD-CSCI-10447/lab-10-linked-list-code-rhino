@@ -40,6 +40,20 @@ public class SinglyLinkedList<T> {
         return false;
     }
 
+
+    public void insertAtEnd(T data){
+        if(headNode == null){
+           insertAtHead(data);
+           return;
+        }
+        Node<T> currentNode = headNode;
+        while(currentNode.hasNext()){
+            Node<T> nextNode = currentNode.getNextNode();
+            currentNode = nextNode;
+        }
+        currentNode.setNextNode(new Node<>(data));
+    }
+
     public String toString(){
         String data = "";
         Node<T> node = headNode;

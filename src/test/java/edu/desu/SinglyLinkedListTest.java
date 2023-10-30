@@ -57,4 +57,33 @@ public class SinglyLinkedListTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void insertAtEndTest01(){
+        // given
+        SinglyLinkedList<String> linkedList = new SinglyLinkedList<>();
+        linkedList.insertAtHead("Test 01");
+        linkedList.insertAtHead("Test 00");
+        linkedList.insertAtEnd("Test 02");
+        // when
+
+        String expected = "Test 00,Test 01,Test 02";
+        String actual = linkedList.toString();
+        // then
+        System.out.println(actual);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void insertAtEndTest02(){
+        // given
+        SinglyLinkedList<String> linkedList = new SinglyLinkedList<>();
+        linkedList.insertAtEnd("Test 02");
+        // when
+
+        String expected = "Test 02";
+        String actual = linkedList.toString();
+        // then
+        Assertions.assertEquals(expected, actual);
+    }
 }
